@@ -7,7 +7,7 @@
 Write-Host "Setting up Development Environment" -ForegroundColor "Yellow"
 
 # Set Computer Name
-(Get-WmiObject Win32_ComputerSystem).Rename("HERBERT-$(get-date -Format yyyy)") | Out-Null
+(Get-WmiObject Win32_ComputerSystem).Rename("RENGGA-$(get-date -Format yyyy)") | Out-Null
 
 # Enable Developer Mode
 Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" "AllowDevelopmentWithoutDevLicense" 1
@@ -40,6 +40,15 @@ Remove-Variable profileDir
 ### Run Powershell Scripts                                                     #
 ################################################################################
 
+Invoke-Expression -Command "& '$profile/script/config-explorer.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$profile/script/config-msedge.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$profile/script/config-npm.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$profile/script/config-power.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$profile/script/config-privacy.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$profile/script/config-pwsh.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$profile/script/config-winapps.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$profile/script/config-windefender.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$profile/script/config-winupdate.ps1' -Profile '$profile'"
 
 ################################################################################
 ### Done!                                                                      #
