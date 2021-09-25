@@ -33,3 +33,13 @@ foreach ($package in $packages) {
 }
 
 refreshenv
+
+# Initialize Basic App Configurations
+
+if (((Get-Command git -ErrorAction SilentlyContinue) -ne $null) -and ((Get-Module -ListAvailable Posh-Git -ErrorAction SilentlyContinue) -ne $null)) {
+  Import-Module Posh-Git
+}
+
+nvs add latest
+nvs add lts
+nvs link lts
