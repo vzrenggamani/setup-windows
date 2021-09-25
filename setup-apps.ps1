@@ -15,10 +15,8 @@ refreshenv
 [string[]] $packages =
 'vscode',
 '7zip',
-'git',
 'discord',
 'droidsansmono',
-'FileOptimizer',
 'filezilla',
 'Firefox',
 'GoogleChrome',
@@ -26,7 +24,9 @@ refreshenv
 'slack',
 'SourceCodePro',
 'vlc',
-'python';
+'python',
+'nvs',
+'git.install --params "/GitAndUnixToolsOnPath /NoGitLfs /SChannel /NoAutoCrlf"';
 
 foreach ($package in $packages) {
   choco install $package -y
