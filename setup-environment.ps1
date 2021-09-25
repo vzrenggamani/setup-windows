@@ -33,22 +33,22 @@ Copy-Item -Path ./script/** -Destination $scriptDir -Include **
 # Import apps configurations
 Copy-Item -Path ./home/** -Destination $home -Include **
 
-Remove-Variable componentDir
 Remove-Variable profileDir
+Remove-Variable scriptDir
 
 ################################################################################
 ### Run Powershell Scripts                                                     #
 ################################################################################
 
-Invoke-Expression -Command "& '$profile/script/config-explorer.ps1' -Profile '$profile'"
-Invoke-Expression -Command "& '$profile/script/config-msedge.ps1' -Profile '$profile'"
-Invoke-Expression -Command "& '$profile/script/config-npm.ps1' -Profile '$profile'"
-Invoke-Expression -Command "& '$profile/script/config-power.ps1' -Profile '$profile'"
-Invoke-Expression -Command "& '$profile/script/config-privacy.ps1' -Profile '$profile'"
-Invoke-Expression -Command "& '$profile/script/config-pwsh.ps1' -Profile '$profile'"
-Invoke-Expression -Command "& '$profile/script/config-winapps.ps1' -Profile '$profile'"
-Invoke-Expression -Command "& '$profile/script/config-windefender.ps1' -Profile '$profile'"
-Invoke-Expression -Command "& '$profile/script/config-winupdate.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/script/config-explorer.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/script/config-msedge.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/script/config-npm.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/script/config-power.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/script/config-privacy.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/script/config-pwsh.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/script/config-winapps.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/script/config-windefender.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/script/config-winupdate.ps1' -Profile '$profile'"
 
 ################################################################################
 ### Done!                                                                      #
