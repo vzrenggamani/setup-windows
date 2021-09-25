@@ -22,13 +22,13 @@ Enable-WindowsOptionalFeature -Online -All -FeatureName "Microsoft-Windows-Subsy
 Write-Host "Copying Apps Configurations" -ForegroundColor "Yellow"
 
 $profileDir = Split-Path -parent $profile
-$componentDir = Join-Path $profileDir "apps"
+$scriptDir = Join-Path $profileDir "scripts"
 
 New-Item $profileDir -ItemType Directory -Force -ErrorAction SilentlyContinue
-New-Item $componentDir -ItemType Directory -Force -ErrorAction SilentlyContinue
+New-Item $scriptDir -ItemType Directory -Force -ErrorAction SilentlyContinue
 
 Copy-Item -Path ./*.ps1 -Destination $profileDir -Exclude "setup-environment.ps1"
-Copy-Item -Path ./apps/** -Destination $componentDir -Include **
+Copy-Item -Path ./script/** -Destination $scriptDir -Include **
 
 # Import apps configurations
 Copy-Item -Path ./home/** -Destination $home -Include **
