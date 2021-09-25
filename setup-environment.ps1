@@ -33,22 +33,26 @@ Copy-Item -Path ./script/** -Destination $scriptDir -Include **
 # Import apps configurations
 Copy-Item -Path ./home/** -Destination $home -Include **
 
-Remove-Variable profileDir
-Remove-Variable scriptDir
-
 ################################################################################
 ### Run Powershell Scripts                                                     #
 ################################################################################
 
-Invoke-Expression -Command "& '$scriptDir/script/config-explorer.ps1' -Profile '$profile'"
-Invoke-Expression -Command "& '$scriptDir/script/config-msedge.ps1' -Profile '$profile'"
-Invoke-Expression -Command "& '$scriptDir/script/config-npm.ps1' -Profile '$profile'"
-Invoke-Expression -Command "& '$scriptDir/script/config-power.ps1' -Profile '$profile'"
-Invoke-Expression -Command "& '$scriptDir/script/config-privacy.ps1' -Profile '$profile'"
-Invoke-Expression -Command "& '$scriptDir/script/config-pwsh.ps1' -Profile '$profile'"
-Invoke-Expression -Command "& '$scriptDir/script/config-winapps.ps1' -Profile '$profile'"
-Invoke-Expression -Command "& '$scriptDir/script/config-windefender.ps1' -Profile '$profile'"
-Invoke-Expression -Command "& '$scriptDir/script/config-winupdate.ps1' -Profile '$profile'"
+# Windows Configuration Initialization
+Invoke-Expression -Command "& '$scriptDir/config-explorer.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/config-msedge.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/config-npm.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/config-power.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/config-privacy.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/config-pwsh.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/config-winapps.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/config-windefender.ps1' -Profile '$profile'"
+Invoke-Expression -Command "& '$scriptDir/config-winupdate.ps1' -Profile '$profile'"
+
+# Development Software Setup
+Invoke-Expression -Command "& '$profileDir/setup-apps.ps1' -Profile '$profile'"
+
+Remove-Variable profileDir
+Remove-Variable scriptDir
 
 ################################################################################
 ### Done!                                                                      #
